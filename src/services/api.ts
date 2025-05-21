@@ -1,24 +1,32 @@
-import axios from "axios";
-import { Image } from "../types/image";
+// src/services/api.ts
+import axios from 'axios';
+import { ApiResponse } from '../types/image'; // Імпортуємо ApiResponse
 
-const API_KEY = "bxCWOCG6Ryn-QR9Q9kaus_sxPIUu908puB1XN4bBNhg";
+const API_KEY = 'YOUR_UNSPLASH_ACCESS_KEY'; // Замініть на ваш ключ
+const BASE_URL = 'https://api.unsplash.com/search/photos';
 
-axios.defaults.baseURL = "https://api.unsplash.com";
+export async function fetchImages(query: string, page: number): Promise<ApiResponse> {
+    const params = {
+        client_id: API_KEY,
+        query: query,
+        page: page,
+        per_page: 12, // Кількість зображень на сторінці
+    };
 
-export interface FetchImagesResponse {
-    total: number;
-    results: Image[];
-}
-
-export async function fetchImages(query: string, page: number): Promise<FetchImagesResponse> {
-    const response = await axios.get("/search/photos", {
-        params: {
-            query,
-            per_page: 12,
-            page,
-            client_id: API_KEY,
-        },
-    });
-
-    return response.data;
+    try {
+        const response = await axios.get<ApiResponse>(BASE_URL, { params });
+        return response.data; // axios автоматично десеріалізує JSON
+    } catch (error) {
+        // Тут ви можете обробити помилки більш детально
+        if (axios.isAxiosError(error)) {
+            console.error('Axios error:', error.message);
+            if (error.response) {
+                console.error('Response data:', error.response.data);
+                console.error('Response status:', error.response.status);
+            }
+        } else {
+            console.error('Unexpected error:', error);
+        }
+        throw error; // Перекидаємо помилку далі
+    }
 }

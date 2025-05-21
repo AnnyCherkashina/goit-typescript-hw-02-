@@ -1,3 +1,4 @@
+// src/App.tsx
 import { useEffect, useState } from "react";
 import "./App.css";
 import { fetchImages } from "./services/api";
@@ -8,7 +9,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
-import { Image } from "./types/image";
+import { Image, ModalImage, ApiResponse } from "./types/image";
 
 function App() {
   const [images, setImages] = useState<Image[]>([]);
@@ -18,14 +19,14 @@ function App() {
   const [error, setError] = useState<boolean>(false);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [imgURL, setImgURL] = useState<string>("");
+  const [imgURL, setImgURL] = useState<ModalImage | null>(null);
 
   useEffect(() => {
     const getImages = async () => {
       setError(false);
       setIsLoading(true);
       try {
-        const imagesList = await fetchImages(query, offset);
+        const imagesList: ApiResponse = await fetchImages(query, offset);
         setImages(prev => [...prev, ...imagesList.results]);
         setTotalItems(imagesList.total);
       } catch (error) {
@@ -46,29 +47,30 @@ function App() {
   const handleChangeQuery = (queryStr: string): void => {
     setQuery(queryStr);
     setImages([]);
-    setOffset(1); // не забудь скинути сторінку!
+    setOffset(1);
   };
 
-  const openModal = (imgURL: string): void => {
+  const openModal = (imgData: ModalImage): void => {
     setIsOpen(true);
-    setImgURL(imgURL);
+    setImgURL(imgData);
   };
 
   const closeModal = (): void => {
     setIsOpen(false);
+    setImgURL(null);
   };
 
   return (
-    <div>
-      <SearchBar setQuery={handleChangeQuery} />
+    <div> {/* <--- Відкриваючий div */}
+      <SearchBar onSubmit={handleChangeQuery} />
       {error && <ErrorMessage />}
       <ImageGallery images={images} openModal={openModal} />
       {!isLoading && images.length < totalItems && !error && (
-        <LoadMoreBtn handleLoadMore={handleLoadMore} />
+        <LoadMoreBtn onClick={handleLoadMore} />
       )}
       {isLoading && <Loader />}
       <ImageModal closeModal={closeModal} isOpen={isOpen} imgURL={imgURL} />
-    </div>
+    </div> // <--- Закриваючий div
   );
 }
 

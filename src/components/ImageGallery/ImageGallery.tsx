@@ -1,10 +1,11 @@
+import React from 'react';
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
-import type { Image } from "../../types/image";
+import type { Image, ModalImage } from "../../types/image"; // <--- ВИПРАВЛЕНО: Імпорт ModalImage
 
 interface Props {
     images: Image[];
-    openModal: (url: string) => void;
+    openModal: (imgData: ModalImage) => void; // <--- ВИПРАВЛЕНО: openModal приймає ModalImage
 }
 
 const ImageGallery: React.FC<Props> = ({ images, openModal }) => {

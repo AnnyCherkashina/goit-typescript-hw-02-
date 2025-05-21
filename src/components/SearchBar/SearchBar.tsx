@@ -1,3 +1,4 @@
+import React from 'react';
 import { Formik, Form, Field, ErrorMessage as FormikError } from "formik";
 import * as Yup from "yup";
 import css from "./SearchBar.module.css";
@@ -5,14 +6,14 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface Props {
-    setQuery: (query: string) => void;
+    onSubmit: (query: string) => void; // <--- ВИПРАВЛЕНО: Пропс називається onSubmit
 }
 
 interface FormValues {
     query: string;
 }
 
-const SearchBar: React.FC<Props> = ({ setQuery }) => {
+const SearchBar: React.FC<Props> = ({ onSubmit }) => { // <--- ВИПРАВЛЕНО: Деструктуризуємо onSubmit
     const initialValues: FormValues = { query: "" };
 
     const validationSchema = Yup.object({
@@ -24,7 +25,7 @@ const SearchBar: React.FC<Props> = ({ setQuery }) => {
             toast.error("Search field cannot be empty!");
             return;
         }
-        setQuery(data.query);
+        onSubmit(data.query); // <--- ВИПРАВЛЕНО: Викликаємо onSubmit
         resetForm();
     };
 
