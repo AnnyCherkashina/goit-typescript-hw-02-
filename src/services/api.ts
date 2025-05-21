@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { ApiResponse } from '../types/image'; // Імпортуємо ApiResponse
 
-const API_KEY = 'YOUR_UNSPLASH_ACCESS_KEY'; // Замініть на ваш ключ
+const API_KEY = "bxCWOCG6Ryn-QR9Q9kaus_sxPIUu908puB1XN4bBNhg";
 const BASE_URL = 'https://api.unsplash.com/search/photos';
 
 export async function fetchImages(query: string, page: number): Promise<ApiResponse> {

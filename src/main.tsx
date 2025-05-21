@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+import Modal from 'react-modal';
+// <--- ІМПОРТ REACT-MODAL
 
-import Modal from 'react-modal'; // <--- ДОДАНО: Імпорт Modal
-
-// <--- ВИПРАВЛЕНО: Modal.setAppElement викликається тут ОДИН РАЗ
+// Встановіть елемент програми для react-modal тут, один раз
 Modal.setAppElement('#root');
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
