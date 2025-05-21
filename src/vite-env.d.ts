@@ -1,5 +1,4 @@
-// src/custom.d.ts
-/// <reference types="vite/client" /> // Зазвичай тут, або у vite-env.d.ts
+/// <reference types="vite/client" />
 
 declare module '*.module.css' {
     const classes: { [key: string]: string };
