@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1440px;
+    border-radius: 6px;
+
+}
+
+.field {
+    width: 300px;
+    height: 45px;
+    margin: 15px;
+    border-radius: 6px;
+    padding: 15px;
+
+    border: 2px solid rgb(245, 142, 180);
+
+}
+
+.form {
+    position: relative;
+}
+
+.btn {
+    background-color: rgb(148, 96, 109);
+    border: 2px solid rgb(245, 142, 180);
+}
