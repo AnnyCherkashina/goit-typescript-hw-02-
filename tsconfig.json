@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true, // <--- ЗМІНИЛИ НА TRUE
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler", // <--- ЗМІНИЛИ НА "bundler"
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx"
+    },
+    "include": [
+        "src",
+        "vite-env.d.ts", // <--- ДОДАЛИ
+        "src/**/*.d.ts" // <--- ДОДАЛИ (для custom.d.ts та інших декларацій)
+    ]
+    // <--- ВАЖЛИВО: СЕКЦІЯ "references" ТУТ ПОВИННА БУТИ ПОВНІСТЮ ВИДАЛЕНА!
+}
