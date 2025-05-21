@@ -7,23 +7,23 @@
             "DOM.Iterable",
             "ESNext"
         ],
-        "allowJs": true,
+        "allowJs": false, // <--- Змінено на false
         "skipLibCheck": true,
-        "esModuleInterop": true, // <--- ЗМІНИЛИ НА TRUE
+        "esModuleInterop": true, // <--- МАЄ БУТИ TRUE
         "allowSyntheticDefaultImports": true,
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "module": "ESNext",
-        "moduleResolution": "bundler", // <--- ЗМІНИЛИ НА "bundler"
+        "moduleResolution": "bundler", // <--- МАЄ БУТИ "bundler"
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx"
     },
     "include": [
-        "src",
-        "vite-env.d.ts", // <--- ДОДАЛИ
-        "src/**/*.d.ts" // <--- ДОДАЛИ (для custom.d.ts та інших декларацій)
+        "src", // Включаємо всю папку src
+        "vite-env.d.ts", // Обов'язковий файл Vite
+        "src/**/*.d.ts" // Для файлів декларацій, таких як custom.d.ts
     ]
-    // <--- ВАЖЛИВО: СЕКЦІЯ "references" ТУТ ПОВИННА БУТИ ПОВНІСТЮ ВИДАЛЕНА!
+    // <--- ВАЖЛИВО: СЕКЦІЯ "references" МАЄ БУТИ ПОВНІСТЮ ВИДАЛЕНА ЗВІДСИ!
 }
