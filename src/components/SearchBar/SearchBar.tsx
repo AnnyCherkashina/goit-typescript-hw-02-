@@ -40,7 +40,7 @@ const SearchBar: React.FC<Props> = ({ onSubmit }) => { // <--- ВИПРАВЛЕ�
                 >
                     <Form className={css.form}>
                         <Field className={css.field} type="text" name="query" placeholder="Search..." />
-                        <FormikError name="query" component="div" style={{ color: 'red' }} />
+                        <FormikError name="query" component="div" className={css.errorText} />
                         <button className={css.btn} type="submit">Search</button>
                     </Form>
                 </Formik>

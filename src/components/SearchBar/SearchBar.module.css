@@ -30,3 +30,10 @@ header {
     background-color: rgb(148, 96, 109);
     border: 2px solid rgb(245, 142, 180);
 }
+
+.errorText {
+    color: red;
+    /* Додайте інші стилі для тексту помилки, якщо потрібно */
+    font-size: 0.8em;
+    margin-top: 5px;
+}
