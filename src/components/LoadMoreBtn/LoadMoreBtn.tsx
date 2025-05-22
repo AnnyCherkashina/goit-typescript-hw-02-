@@ -2,13 +2,13 @@ import React from 'react';
 import css from "./LoadMoreBtn.module.css";
 
 interface Props {
-    onClick: () => void; // <--- ВИПРАВЛЕНО: Пропс називається onClick
+    onClick: () => void; //
 }
 
-const LoadMoreBtn: React.FC<Props> = ({ onClick }) => { // <--- ВИПРАВЛЕНО: Деструктуризуємо onClick
+const LoadMoreBtn: React.FC<Props> = ({ onClick }) => { //
     return (
         <div>
-            <button className={css.btn} onClick={onClick}>Load More</button> {/* <--- ВИПРАВЛЕНО: Викликаємо onClick */}
+            <button className={css.btn} onClick={onClick}>Load More</button> { }
         </div>
     );
 };

@@ -3,26 +3,26 @@ import React from 'react';
 import Modal from "react-modal";
 
 import css from "./ImageModal.module.css";
-import { ModalImage } from "../../types/image"; // <--- ДОДАНО: Імпорт ModalImage
+import { ModalImage } from "../../types/image"; // 
 
-// Modal.setAppElement('#root'); // <--- ВИПРАВЛЕНО: ЦЕЙ РЯДОК ПЕРЕНЕСЕНИЙ У main.tsx
+
 
 interface Props {
     isOpen: boolean;
     closeModal: () => void;
-    imgURL: ModalImage | null; // <--- ВИПРАВЛЕНО: imgURL є ModalImage | null
+    imgURL: ModalImage | null; // 
 }
 
 const ImageModal: React.FC<Props> = ({ isOpen, closeModal, imgURL }) => {
     if (!imgURL) {
-        return null; // Якщо немає URL, не рендеримо модалку
+        return null; // 
     }
 
     return (
         <Modal
             isOpen={isOpen}
             onRequestClose={closeModal}
-            // Додайте стилі, якщо потрібно (наприклад, для center модалки)
+            // 
             style={{
                 overlay: {
                     backgroundColor: 'rgba(0, 0, 0, 0.75)'

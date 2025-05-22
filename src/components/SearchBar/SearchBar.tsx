@@ -6,14 +6,14 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface Props {
-    onSubmit: (query: string) => void; // <--- ВИПРАВЛЕНО: Пропс називається onSubmit
+    onSubmit: (query: string) => void; // 
 }
 
 interface FormValues {
     query: string;
 }
 
-const SearchBar: React.FC<Props> = ({ onSubmit }) => { // <--- ВИПРАВЛЕНО: Деструктуризуємо onSubmit
+const SearchBar: React.FC<Props> = ({ onSubmit }) => { // 
     const initialValues: FormValues = { query: "" };
 
     const validationSchema = Yup.object({
@@ -25,7 +25,7 @@ const SearchBar: React.FC<Props> = ({ onSubmit }) => { // <--- ВИПРАВЛЕ�
             toast.error("Search field cannot be empty!");
             return;
         }
-        onSubmit(data.query); // <--- ВИПРАВЛЕНО: Викликаємо onSubmit
+        onSubmit(data.query); // 
         resetForm();
     };
 

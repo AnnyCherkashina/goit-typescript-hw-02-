@@ -61,7 +61,7 @@ function App() {
   };
 
   return (
-    <div> {/* <--- Відкриваючий div */}
+    <div> { }
       <SearchBar onSubmit={handleChangeQuery} />
       {error && <ErrorMessage />}
       <ImageGallery images={images} openModal={openModal} />
@@ -70,7 +70,7 @@ function App() {
       )}
       {isLoading && <Loader />}
       <ImageModal closeModal={closeModal} isOpen={isOpen} imgURL={imgURL} />
-    </div> // <--- Закриваючий div
+    </div> //
   );
 }
 

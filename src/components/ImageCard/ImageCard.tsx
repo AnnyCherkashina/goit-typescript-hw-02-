@@ -1,14 +1,14 @@
 import React from 'react';
 import css from './ImageCard.module.css';
-import type { Image, ModalImage } from "../../types/image"; // <--- ВИПРАВЛЕНО: Тільки один імпорт типів
+import type { Image, ModalImage } from "../../types/image"; // 
 
 interface Props {
     image: Image;
-    openModal: (imgData: ModalImage) => void; // <--- ВИПРАВЛЕНО: openModal приймає ModalImage
+    openModal: (imgData: ModalImage) => void; // 
 }
 
 const ImageCard: React.FC<Props> = ({ image, openModal }) => {
-    const altText = image.alt_description || "Зображення"; // <--- ВИПРАВЛЕНО: Правильне звернення до alt_description
+    const altText = image.alt_description || "Зображення"; //
 
     return (
         <div>
@@ -16,8 +16,8 @@ const ImageCard: React.FC<Props> = ({ image, openModal }) => {
                 className={css.image}
                 src={image.urls.small}
                 alt={altText}
-                onClick={() => openModal({ // <--- ВИПРАВЛЕНО: Передаємо ОБ'ЄКТ ModalImage
-                    src: image.urls.regular, // Або image.urls.full
+                onClick={() => openModal({ //
+                    src: image.urls.regular, // 
                     alt: altText,
                 })}
             />
